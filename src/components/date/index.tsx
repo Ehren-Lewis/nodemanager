@@ -1,8 +1,7 @@
 'use client';
 
-import { FrameCorners } from '@arwes/react-frames'
+import { FrameCorners, FrameLines } from '@arwes/react-frames'
 import React, { type ReactElement, useState, useEffect } from 'react'
-import { createRoot } from 'react-dom/client'
 import { Text } from '@arwes/react-text'
 
 
@@ -49,24 +48,12 @@ const CustomDate = (): ReactElement => {
 
 
   return (
-    <div>
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundColor: '#000906',
-          backgroundImage:
-            'radial-gradient(85% 85% at 50% 50%, hsla(185, 100%, 25%, 0.25) 0%, hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
-        }}
-      >
+    <div className=''>
 
-      </div>
-      <div
+      <div className="m-4 px-4 py-4"
       style={{
         position: 'relative',
         display: 'inline-block',
-        margin: '1rem',
-        padding: '1rem 2rem'
       }}
     >
 
@@ -74,26 +61,19 @@ const CustomDate = (): ReactElement => {
         style={{
           // @ts-expect-error css variables
           '--arwes-frames-bg-color': 'hsl(180, 75%, 10%)',
-          '--arwes-frames-line-color': 'hsl(180, 75%, 50%)'
+          '--arwes-frames-line-color': 'hsl(180, 75%, 50%)',
+          '--arwes-frames-deco-color': 'hsl(180, 75%, 50%)'
 
-          // The frame elements properties can be changed using CSS like:
-          // ```css
-          // [data-frame=bg] {
-          //   color: hsl(180, 75%, 10%);
-          // }
-          // [data-frame=line] {
-          //   color: hsl(180, 75%, 50%);
-          // }
-          // ```
+
         }}
       />
 
       {/* The frame component is positioned so the other elements which need
           to be on top should also be positioned. You can change this behaviour
           by using z-index property of any of them. */}
-      <div style={{ position: 'relative', color: 'hsl(180, 75%, 50%)' }} className='flex items-center'>
+      <div style={{ position: 'relative', color: 'hsl(180, 75%, 50%)' }} className=''>
         {/* <Text as="p">{formattedDate} {formattedTime}</Text> */}
-        <p className='text-3xl font-bold underline'>{formattedDate} {formattedTime}</p> 
+        <p className=''>{formattedDate} {formattedTime}</p> 
 
       </div>
     </div>

@@ -1,8 +1,5 @@
 'use client';
-
-import { FrameCorners } from '@arwes/react-frames'
 import React, { type ReactElement, useState, useEffect } from 'react'
-import { createRoot } from 'react-dom/client'
 import { Animator } from '@arwes/react-animator'
 import { GridLines, Dots, MovingLines } from '@arwes/react-bgs'
 import CustomDate from '@/components/date';
@@ -17,15 +14,19 @@ const Sandbox = (): ReactElement => {
 
   return (
     <Animator active={true}>
-      <div className='flex container'
+      <div className=''
         style={{
           backgroundColor: '#000906',
           backgroundImage:
             'radial-gradient(85% 85% at 50% 50%, hsla(61, 32.80%, 52.20%, 0.25)hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
         }}
-      >    
-      <CustomDate />
+      >
+        <div className='flex justify-center'><CustomDate /></div> 
       
+      
+
+      {/* <CustomDate />
+      <CustomDate /> */}
 
 
         <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
@@ -36,6 +37,8 @@ const Sandbox = (): ReactElement => {
     
     
     </Animator>
+
+    // <CustomDate />
 
   )
 

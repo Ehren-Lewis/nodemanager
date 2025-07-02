@@ -5,8 +5,8 @@ const ProjectsHome = () => {
 
     return (
 
-        <div className="bg-red-500 p-4 text-white">
-            <p>HI</p>
+        <div className="bg-sky-200">
+            <p className="text-underline">HI</p>
         </div>
     )
 }
