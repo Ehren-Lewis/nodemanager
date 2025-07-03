@@ -3,7 +3,8 @@ import React, { type ReactElement, useState, useEffect } from 'react'
 import { Animator } from '@arwes/react-animator'
 import { GridLines, Dots, MovingLines } from '@arwes/react-bgs'
 import CustomDate from '@/components/date';
-import ProjectsHome from '@/components/projects';
+import {ProjectList } from '@/components/projects';
+import { Tasks } from "@/components/todo";
 const Sandbox = (): ReactElement => {
   // const [active, setActive] = useState(true)
 
@@ -28,6 +29,22 @@ const Sandbox = (): ReactElement => {
       {/* <CustomDate />
       <CustomDate /> */}
 
+ <div className="grid grid-cols-3 gap-8">
+  <div className="flex flex-col items-center">
+    <p>Projects</p>
+    <ProjectList />
+    <p>{}</p>
+    <Tasks />
+  </div>
+
+  <div className="flex flex-col items-center">
+    <ProjectList />
+  </div>
+
+  <div className="flex flex-col items-center">
+    <ProjectList />
+  </div>
+</div>
 
         <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
         <Dots color="hsla(180, 100%, 75%, 0.05)" distance={30} />
