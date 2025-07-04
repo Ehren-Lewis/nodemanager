@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 // desired data:
 //due, description?, priority, content, dayorder?, deadline?, labels?
 
-
+// mark for deletion
 export const Tasks = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -14,7 +14,7 @@ export const Tasks = () => {
         const res = await fetch('/api/todoist');
         const data = await res.json();
         setTasks(data.results)
-              console.log('Fetched tasks:', data.results);
+              // console.log('Fetched tasks:', data.results);
 
       } catch (err) {
         console.error('Error fetching tasks:', err);
@@ -25,7 +25,7 @@ export const Tasks = () => {
   }, []);
 
   return (
-    <ul>
+    <ul className="text-center w-fit mx-auto">
       {tasks.map((task: any) => (
         <li key={task.id}>{task.content}</li>
       ))}
