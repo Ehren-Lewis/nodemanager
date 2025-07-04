@@ -1,2 +1,2 @@
-export * from "./tasks";
-export * from "./today";
+// export * from "./tasksDeprecated";
+export * from "./todayList";
