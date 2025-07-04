@@ -2,7 +2,7 @@ import { learningCard } from "./learningCard";
 
 
 
-export const learningList: React.FC = () => {
+export const LearningList: React.FC = () => {
 
 
     return (

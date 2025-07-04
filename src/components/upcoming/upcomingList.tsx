@@ -2,7 +2,7 @@ import { upcomingCard } from "./upcomingCard";
 
 
 
-export const upcomingList: React.FC = () => {
+export const UpcomingList: React.FC = () => {
 
 
     return (
