@@ -7,7 +7,10 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}', // optional if using src/
   ],
   theme: {
-    extend: {},
+    extend: { 
+      fontFamily: {
+        orbitron: ['var(--font-orbitron)'], // using .variable instead of .className
+    },},
   },
   plugins: [],
 };

@@ -4,7 +4,7 @@ import { Animator } from '@arwes/react-animator'
 import { GridLines, Dots, MovingLines } from '@arwes/react-bgs'
 import CustomDate from '@/components/date';
 import {ProjectList } from '@/components/projects';
-import { Tasks } from "@/components/todo";
+import { Tasks, TodaysTasks } from "@/components/todo";
 const Sandbox = (): ReactElement => {
   // const [active, setActive] = useState(true)
 
@@ -29,16 +29,16 @@ const Sandbox = (): ReactElement => {
       {/* <CustomDate />
       <CustomDate /> */}
 
- <div className="grid grid-cols-3 gap-8">
+ <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 font-orbitron">
   <div className="flex flex-col items-center">
-    <p>Projects</p>
+    <p className='font-orbitron'>Projects</p>
     <ProjectList />
     <p>{}</p>
     <Tasks />
   </div>
 
   <div className="flex flex-col items-center">
-    <ProjectList />
+    <TodaysTasks />
   </div>
 
   <div className="flex flex-col items-center">
