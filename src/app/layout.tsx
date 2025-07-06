@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron} from "next/font/google";
+import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,11 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 const orbitron = Orbitron({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-orbitron' // ✅ Needed for Tailwind support
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-orbitron", // ✅ Needed for Tailwind support
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${orbitron.variable} font-orbitron`}>
-        {children}
-      </body>
+      <body className={`${orbitron.variable} font-orbitron`}>{children}</body>
     </html>
   );
 }

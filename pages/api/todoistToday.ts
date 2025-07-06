@@ -1,6 +1,5 @@
-// s// pages/api/todoist.ts
 import type { NextApiRequest, NextApiResponse } from "next";
-import { TodoistApi } from "@doist/todoist-api-typescript";
+import { TodoistApi, type Task } from "@doist/todoist-api-typescript";
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,10 +14,18 @@ export default async function handler(
   const api = new TodoistApi(token);
 
   try {
-    const tasks = await api.getTasks(); // You can pass filters here too
-    res.status(200).json(tasks);
+    const today = new Date().toISOString().split("T")[0];
+
+    const rawTasks = await api.getTasks();
+
+    const tasks = rawTasks.results || [];
+
+    const todaysTasks = tasks.filter((task) => task.due?.date === today);
+    res.status(200).json(todaysTasks);
   } catch (error) {
     console.error("Todoist API error:", error);
     res.status(500).json({ error: "Failed to fetch tasks from Todoist" });
   }
 }
+
+// deadline == null will be for projects
