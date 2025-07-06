@@ -1,12 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
 export const TodayList = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await fetch('/api/todoistToday');
+      const res = await fetch("/api/todoistToday");
       const data = await res.json();
       setTasks(data);
     };

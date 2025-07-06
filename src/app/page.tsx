@@ -1,11 +1,15 @@
-'use client';
-import React, { type ReactElement, useState, useEffect } from 'react'
-import { Animator } from '@arwes/react-animator'
-import { GridLines, Dots, MovingLines } from '@arwes/react-bgs'
-import CustomDate from '@/components/date';
-import {ProjectList } from '@/components/projects';
-import { Tasks, TodaysTasks } from "@/components/todo";
-const Sandbox = (): ReactElement => {
+"use client";
+import React, { type ReactElement, useState, useEffect } from "react";
+import { Animator } from "@arwes/react-animator";
+import { GridLines, Dots, MovingLines } from "@arwes/react-bgs";
+
+import CustomDate from "@/components/date";
+import { TodayList } from "@/components/today";
+import { ProjectList } from "@/components/projects";
+import { LearningList } from "@/components/learning";
+import { UpcomingList } from "@/components/upcoming";
+
+const Page = (): ReactElement => {
   // const [active, setActive] = useState(true)
 
   // useEffect(() => {
@@ -15,94 +19,58 @@ const Sandbox = (): ReactElement => {
 
   return (
     <Animator active={true}>
-      <div className=''
+      <div
+        className=""
         style={{
-          backgroundColor: '#000906',
+          backgroundColor: "#000906",
           backgroundImage:
-            'radial-gradient(85% 85% at 50% 50%, hsla(61, 32.80%, 52.20%, 0.25)hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
+            "radial-gradient(85% 85% at 50% 50%, hsla(61, 32.80%, 52.20%, 0.25)hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)",
         }}
       >
-        <div className='flex justify-center'><CustomDate /></div> 
-      
-      
+        <div className="flex justify-center">
+          <CustomDate />
+        </div>
 
-      {/* <CustomDate />
-      <CustomDate /> */}
+        <div className="flex flex-col items-center">
+          <p className="font-orbitron">Projects</p>
+          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+            <ProjectList />
+          </div>
+        </div>
 
- <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 font-orbitron">
-  <div className="flex flex-col items-center">
-    <p className='font-orbitron'>Projects</p>
-    <ProjectList />
-    <p>{}</p>
-    <Tasks />
-  </div>
+        <div className="flex flex-col items-center">
+          <p className="font-orbitron">To Do Today</p>
+          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+            <TodayList />
+          </div>
+        </div>
 
-  <div className="flex flex-col items-center">
-    <TodaysTasks />
-  </div>
+        <div className="flex flex-col items-center">
+          <p className="font-orbitron">Learning</p>
+          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+            <LearningList />
+          </div>
+        </div>
 
-  <div className="flex flex-col items-center">
-    <ProjectList />
-  </div>
-</div>
+        <div className="flex flex-col items-center">
+          <p className="font-orbitron">Upcoming</p>
+          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+            <UpcomingList />
+          </div>
+        </div>
 
         <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
         <Dots color="hsla(180, 100%, 75%, 0.05)" distance={30} />
-        <MovingLines lineColor="hsla(180, 100%, 75%, 0.07)" distance={30} sets={20} />
+        <MovingLines
+          lineColor="hsla(180, 100%, 75%, 0.07)"
+          distance={30}
+          sets={20}
+        />
       </div>
-        
-    
-    
     </Animator>
 
     // <CustomDate />
+  );
+};
 
-  )
-
-}
-
-
-
-// const Sandbox = (): React.JSX.Element => {
-//   return (
-//     // The parent element of the frame component should be positioned.
-//     <div
-//       style={{
-//         position: 'relative',
-//         display: 'inline-block',
-//         margin: '1rem',
-//         padding: '1rem 2rem'
-//       }}
-//     >
-//       {/* Any frame component by default will take all space inside the nearest
-//           positioned parent. You can change this behaviour by using frame property
-//           `positioned = false`. */}
-//       <FrameCorners
-//         style={{
-//           // @ts-expect-error css variables
-//           '--arwes-frames-bg-color': 'hsl(180, 75%, 10%)',
-//           '--arwes-frames-line-color': 'hsl(180, 75%, 50%)'
-
-//           // The frame elements properties can be changed using CSS like:
-//           // ```css
-//           // [data-frame=bg] {
-//           //   color: hsl(180, 75%, 10%);
-//           // }
-//           // [data-frame=line] {
-//           //   color: hsl(180, 75%, 50%);
-//           // }
-//           // ```
-//         }}
-//       />
-
-//       {/* The frame component is positioned so the other elements which need
-//           to be on top should also be positioned. You can change this behaviour
-//           by using z-index property of any of them. */}
-//       <div style={{ position: 'relative', color: 'hsl(180, 75%, 50%)' }}>
-//         Futuristic Sci-Fi UI Web Framework
-//       </div>
-//     </div>
-//   )
-// }
-
-export default Sandbox;
+export default Page;

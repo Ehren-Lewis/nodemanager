@@ -1,5 +1,5 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
 // desired data:
 //due, description?, priority, content, dayorder?, deadline?, labels?
@@ -11,13 +11,12 @@ export const Tasks = () => {
   useEffect(() => {
     const getTasks = async () => {
       try {
-        const res = await fetch('/api/todoist');
+        const res = await fetch("/api/todoist");
         const data = await res.json();
-        setTasks(data.results)
-              // console.log('Fetched tasks:', data.results);
-
+        setTasks(data.results);
+        // console.log('Fetched tasks:', data.results);
       } catch (err) {
-        console.error('Error fetching tasks:', err);
+        console.error("Error fetching tasks:", err);
       }
     };
 
