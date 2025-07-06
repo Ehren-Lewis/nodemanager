@@ -32,29 +32,29 @@ const Page = (): ReactElement => {
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="font-orbitron">Projects</p>
-          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+          <p className="font-orbitron p-5">Projects</p>
+          <div className=" font-orbitron w-100">
             <ProjectList />
           </div>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="font-orbitron">To Do Today</p>
-          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+          <p className="font-orbitron p-5">To Do Today</p>
+          <div className="font-orbitron">
             <TodayList />
           </div>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="font-orbitron">Learning</p>
-          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+          <p className="font-orbitron p-5">Learning</p>
+          <div className="font-orbitron">
             <LearningList />
           </div>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="font-orbitron">Upcoming</p>
-          <div className="grid sm:grid-cols-5 gap-8 font-orbitron">
+          <p className="font-orbitron p-5">Upcoming</p>
+          <div className="font-orbitron">
             <UpcomingList />
           </div>
         </div>

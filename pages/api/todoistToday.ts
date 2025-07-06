@@ -14,13 +14,15 @@ export default async function handler(
   const api = new TodoistApi(token);
 
   try {
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date().toLocaleDateString('en-CA');
 
-    const rawTasks = await api.getTasks();
+    const tasks = await api.getTasks();
 
-    const tasks = rawTasks.results || [];
-
-    const todaysTasks = tasks.filter((task) => task.due?.date === today);
+    // const tasks = rawTasks.results;
+    
+    const todaysTasks = tasks.results.filter((task) => task.due?.date === today);
+    console.log(todaysTasks);
+    console.log(today)
     res.status(200).json(todaysTasks);
   } catch (error) {
     console.error("Todoist API error:", error);
