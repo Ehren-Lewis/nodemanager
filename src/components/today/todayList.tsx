@@ -1,27 +1,28 @@
-'use client';
-import { useEffect, useState } from 'react';
-
+"use client";
+import { useEffect, useState } from "react";
+import TodayCard from "./todayCard";
 export const TodayList = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await fetch('/api/todoistToday');
+      const res = await fetch("/api/todoistToday");
       const data = await res.json();
       setTasks(data);
     };
 
     fetchTasks();
+
   }, []);
 
   return (
-    <ul className="text-center w-fit mx-auto space-y-2">
+    <div className="flex flex-row flex-wrap gap-6 justify-center items-start overflow-x-auto px-4 py-8">
       {tasks.length === 0 && <li>No tasks for today</li>}
+
       {tasks.map((task: any) => (
-        <li key={task.id} className="bg-gray-800 p-2 rounded">
-          {task.content}
-        </li>
+        <TodayCard key={task.id} title={task.content} />
+  
       ))}
-    </ul>
+    </div>
   );
 };

@@ -1,2 +1,2 @@
-export * from './projectCard';
-export * from './projectList';
+export * from "./projectCard";
+export * from "./projectList";

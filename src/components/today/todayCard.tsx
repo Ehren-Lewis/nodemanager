@@ -1,8 +1,8 @@
-import { FrameKranox } from "@arwes/react-frames";
+import { FrameLines } from "@arwes/react-frames";
 
-const ProjectCard = ({ title }: { title: string }) => (
+const TodayCard = ({ title }: { title: string }) => (
   <div className="relative w-80 h-40 my-4">
-    <FrameKranox
+    <FrameLines
       style={{
         "--arwes-frames-bg-color": "hsl(180, 76.50%, 10.00%)",
         "--arwes-frames-line-color": "hsl(180, 75%, 30%)",
@@ -16,4 +16,4 @@ const ProjectCard = ({ title }: { title: string }) => (
   </div>
 );
 
-export default ProjectCard;
+export default TodayCard;

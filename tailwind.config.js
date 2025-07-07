@@ -1,16 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './src/**/*.{js,ts,jsx,tsx}', // optional if using src/
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // optional if using src/
   ],
   theme: {
-    extend: { 
+    extend: {
       fontFamily: {
-        orbitron: ['var(--font-orbitron)'], // using .variable instead of .className
-    },},
+        orbitron: ["var(--font-orbitron)"], // using .variable instead of .className
+      },
+    },
   },
   plugins: [],
 };
