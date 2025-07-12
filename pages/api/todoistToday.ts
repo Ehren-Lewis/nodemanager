@@ -18,11 +18,11 @@ export default async function handler(
 
     const tasks = await api.getTasks();
 
+
     // const tasks = rawTasks.results;
     
     const todaysTasks = tasks.results.filter((task) => task.due?.date === today);
-    console.log(todaysTasks);
-    console.log(today)
+
     res.status(200).json(todaysTasks);
   } catch (error) {
     console.error("Todoist API error:", error);

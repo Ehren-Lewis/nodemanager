@@ -5,6 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+const  { name } = req.query;
   const token = process.env.TODOIST_API_TOKEN;
 
   if (!token) {
@@ -15,11 +16,19 @@ export default async function handler(
 
   try {
     // change to getProjectLearing
-    const tasks = await api.getProjects(); // You can pass filters here too
-    const learningProject = tasks.results.filter((task) => task.name === "Learning");
+
+    const allProjects = await api.getProjects();
+
+    const currentProject = allProjects.results.filter((project) => project.name == name);
 
 
-    res.status(200).json(learningProject);
+    const currentProjectId = currentProject[0].id;
+
+    const thisProjectTasks = await api.getTasks({projectId: `${currentProjectId}`});
+    res.status(200).json(thisProjectTasks.results);
+
+    
+
   } catch (error) {
     console.error("Todoist API error:", error);
     res.status(500).json({ error: "Failed to fetch tasks from Todoist" });

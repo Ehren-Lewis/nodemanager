@@ -14,8 +14,6 @@ export const Tasks = () => {
         const res = await fetch('/api/todoist');
         const data = await res.json();
         setTasks(data.results)
-              console.log('Fetched tasks:', data.results);
-
       } catch (err) {
         console.error('Error fetching tasks:', err);
       }
@@ -30,7 +28,7 @@ export const Tasks = () => {
     //     <li key={task.id}>{task.content}</li>
     //   ))}
     // </ul>
-        <div className='grid grid-cols-5 gap-8'>
+        <div className='grid grid-cols-5'>
           {tasks.map((task: any) => (
         <div key={task.id}>{task.content}</div>
       ))}

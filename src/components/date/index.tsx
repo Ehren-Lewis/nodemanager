@@ -60,9 +60,9 @@ const CustomDate = (): ReactElement => {
         <FrameCorners
           style={{
             // @ts-expect-error css variables
-            "--arwes-frames-bg-color": "hsl(180, 75%, 10%)",
-            "--arwes-frames-line-color": "hsl(180, 75%, 50%)",
-            "--arwes-frames-deco-color": "hsl(180, 75%, 50%)",
+        '--arwes-frames-bg-color': 'hsla(286, 38.50%, 43.30%, 0.46)',
+        '--arwes-frames-line-color': 'hsl(315, 98.20%, 55.30%)',
+        "--arwes-frames-deco-color": "hsl(286, 77.50%, 27.80%)",
           }}
         />
 
@@ -70,7 +70,7 @@ const CustomDate = (): ReactElement => {
           to be on top should also be positioned. You can change this behaviour
           by using z-index property of any of them. */}
         <div
-          style={{ position: "relative", color: "hsl(180, 75%, 50%)" }}
+          style={{ position: "relative", }}
           className=""
         >
           {/* <Text as="p">{formattedDate} {formattedTime}</Text> */}
