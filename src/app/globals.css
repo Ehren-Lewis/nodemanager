@@ -44,3 +44,14 @@ a {
     color-scheme: dark;
   }
 }
+
+.neon-text-blue {
+  color: #78cbec;
+  text-shadow: #104bc0 0px 0px 5px
+}
+
+.over-font {
+  color: #ab1abe;
+  /* text-shadow: #d461cf 0px 0px 5px */
+
+}

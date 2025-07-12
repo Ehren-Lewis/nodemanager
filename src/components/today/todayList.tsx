@@ -16,7 +16,7 @@ export const TodayList = () => {
   }, []);
 
   return (
-    <div className="flex flex-row flex-wrap gap-6 justify-center items-start overflow-x-auto px-4 py-8">
+    <div className="flex flex-row flex-wrap">
       {tasks.length === 0 && <li>No tasks for today</li>}
 
       {tasks.map((task: any) => (

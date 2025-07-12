@@ -1,16 +1,16 @@
-import { FrameLines } from "@arwes/react-frames";
+import { FrameLines, FrameNefrex } from "@arwes/react-frames";
 
 const TodayCard = ({ title }: { title: string }) => (
-  <div className="relative w-80 h-40 my-4">
+  <div className="relative w-72 h-20 my-4 mx-2">
     <FrameLines
       style={{
-        "--arwes-frames-bg-color": "hsl(180, 76.50%, 10.00%)",
-        "--arwes-frames-line-color": "hsl(180, 75%, 30%)",
-        "--arwes-frames-deco-color": "hsl(180, 75%, 50%)",
+        '--arwes-frames-bg-color': 'hsla(286, 38.50%, 43.30%, 0.46)',
+        '--arwes-frames-line-color': 'hsl(315, 98.20%, 55.30%)',
+        "--arwes-frames-deco-color": "hsl(286, 77.50%, 27.80%)",
       // "hsl(61, 75.20%, 30.00%)
       }}
     />
-    <div className="absolute inset-0 flex items-center text-center justify-center text-cyan-200 text-lg font-orbitron z-10">
+    <div className="absolute inset-0 flex items-center text-center justify-center text-lg font-orbitron z-10">
       {title}
     </div>
   </div>
