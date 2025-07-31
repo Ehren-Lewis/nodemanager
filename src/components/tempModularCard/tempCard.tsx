@@ -10,9 +10,9 @@ const tempStyle = {
 export const CardItem = ({ title }: { title: string }) => (
   
   
-  <div className="relative w-72 h-20 my-4 mx-2">
+  <div className="relative w-72 p-5 my-4 mx-2">
     <FrameNefrex style={tempStyle} />
-    <div className="absolute inset-0 flex items-center justify-center text-lg font-orbitron z-10 text-center">
+    <div className="absolute inset-0 flex items-center justify-center font-orbitron z-10 text-center">
       {title}
     </div>
   </div>

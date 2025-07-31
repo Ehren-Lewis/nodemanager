@@ -8,7 +8,7 @@ const upcomingStyle = {
       } as React.CSSProperties;
 
 const UpcomingCard = ({ title, date  }: { title: string, date: string }) => (
-  <div className="relative w-72 h-20 my-4 mx-2">
+  <div className="relative w-72 p-5 my-4 mx-2">
     <FrameLines style={upcomingStyle}
     />
     <div className="flex flex-col justify-around h-full">

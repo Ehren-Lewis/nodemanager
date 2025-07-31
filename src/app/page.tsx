@@ -1,12 +1,23 @@
 "use client";
-import React, { type ReactElement, useState, useEffect } from "react";
+import React, { type ReactElement, useState, useEffect, useRef } from "react";
 import { Animator } from "@arwes/react-animator";
 import { GridLines, Dots, MovingLines } from "@arwes/react-bgs";
+
+import Script from 'next/script';
+
 
 import CustomDate from "@/components/date";
 import { TodayList } from "@/components/today";
 import { UpcomingList } from "@/components/upcoming";
 import ProjectTasks from "@/components/tempModularCard/tempList";
+
+
+// declare global {
+//   interface Window {
+//     VANTA: any;
+//   }
+// }
+
 const Page = (): ReactElement => {
   // const [active, setActive] = useState(true)
 
@@ -14,6 +25,36 @@ const Page = (): ReactElement => {
   //   const tid = setInterval(() => setActive(!active), active ? 5_000 : 1_000)
   //   return () => clearInterval(tid)
   // }, [active])
+
+  // const vantaRef = useRef(null);
+
+  // useEffect(() => {
+  //   let vantaEffect: any;
+
+  //   const initializeVanta = () => {
+  //     if (typeof window !== 'undefined' && window.VANTA?.DOTS && vantaRef.current) {
+  //       vantaEffect = window.VANTA.DOTS({
+  //         el: vantaRef.current,
+  //         mouseControls: true,
+  //         touchControls: true,
+  //         gyroControls: false,
+  //         minHeight: 200.0,
+  //         minWidth: 200.0,
+  //         scale: 1.0,
+  //         scaleMobile: 1.0,
+  //         showLines: false,
+  //       });
+  //     }
+  //   };
+
+  //   initializeVanta();
+
+  //   return () => {
+  //     if (vantaEffect && vantaEffect.destroy) vantaEffect.destroy();
+  //   };
+  // }, []);
+
+  
 
   return (
     <Animator active={true}>
@@ -25,11 +66,12 @@ const Page = (): ReactElement => {
             // "radial-gradient(85% 85% at 50% 50%, hsla(61, 32.80%, 52.20%, 0.25)hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)",
     
       >
+        <div>
         <div className="flex justify-center">
           <CustomDate />
         </div>
 
-        <div className="flex-1 flex flex-col justify-between container mx-auto">
+        <div className="flex-1 flex flex-col  container mx-auto">
 
           <div className="flex flex-col">
             <p className="font-orbitron p-2 text-4xl neon-text-blue">Projects</p>
@@ -38,12 +80,14 @@ const Page = (): ReactElement => {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <p className="font-orbitron p-2 text-4xl neon-text-blue">To Do Today</p>
             <div className="font-orbitron">
               <TodayList />
             </div>
-          </div>
+          </div> */}
+
+          <TodayList />
 
           <div className="flex flex-col">
             <p className="font-orbitron p-2 text-4xl neon-text-blue ">Learning</p>
@@ -52,12 +96,9 @@ const Page = (): ReactElement => {
             </div>
           </div>
 
-          <div className="flex flex-col">
-            <p className="font-orbitron p-2 text-4xl neon-text-blue">Upcoming</p>
-            <div className="font-orbitron">
-              <UpcomingList />
-            </div>
-          </div>
+          
+          <UpcomingList />
+        
         </div>
         
 
@@ -69,6 +110,8 @@ const Page = (): ReactElement => {
           distance={30}
           sets={20}
         />
+        </div>
+        
       </div>
     </Animator>
 
