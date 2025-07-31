@@ -19,7 +19,7 @@ export const UpcomingList = () => {
 
     return tasks.length > 0 ? (
     <div className="flex flex-col">
-      <p className="font-orbitron p-2 text-4xl neon-text-blue">To Do Today</p>
+      <p className="font-orbitron text-center">Upcoming</p>
       <div className="font-orbitron">
       <div className="flex flex-row flex-wrap">
        {tasks.length === 0 && <li>No tasks for today</li>}
