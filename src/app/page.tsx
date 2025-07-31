@@ -5,69 +5,29 @@ import { GridLines, Dots, MovingLines } from "@arwes/react-bgs";
 
 import Script from 'next/script';
 
-
 import CustomDate from "@/components/date";
 import { TodayList } from "@/components/today";
 import { UpcomingList } from "@/components/upcoming";
 import ProjectTasks from "@/components/tempModularCard/tempList";
 
 
-// declare global {
-//   interface Window {
-//     VANTA: any;
-//   }
-// }
-
 const Page = (): ReactElement => {
-  // const [active, setActive] = useState(true)
+  const [active, setActive] = useState(true)
 
-  // useEffect(() => {
-  //   const tid = setInterval(() => setActive(!active), active ? 5_000 : 1_000)
-  //   return () => clearInterval(tid)
-  // }, [active])
+  useEffect(() => {
+    const iid = setInterval(() => setActive((active) => !active), 3_000)
+    return () => clearInterval(iid)
+  }, [])
 
-  // const vantaRef = useRef(null);
 
-  // useEffect(() => {
-  //   let vantaEffect: any;
-
-  //   const initializeVanta = () => {
-  //     if (typeof window !== 'undefined' && window.VANTA?.DOTS && vantaRef.current) {
-  //       vantaEffect = window.VANTA.DOTS({
-  //         el: vantaRef.current,
-  //         mouseControls: true,
-  //         touchControls: true,
-  //         gyroControls: false,
-  //         minHeight: 200.0,
-  //         minWidth: 200.0,
-  //         scale: 1.0,
-  //         scaleMobile: 1.0,
-  //         showLines: false,
-  //       });
-  //     }
-  //   };
-
-  //   initializeVanta();
-
-  //   return () => {
-  //     if (vantaEffect && vantaEffect.destroy) vantaEffect.destroy();
-  //   };
-  // }, []);
-
-  
 
   return (
-    <Animator active={true}>
+
+
       <div
-        className="h-screen w-full overflow-hidden flex flex-col bg-cover bg-center "
-        style={{
-          // backgroundColor: "#000906",
-           backgroundImage: `url('/scifibackground.jpg')`   }}
-            // "radial-gradient(85% 85% at 50% 50%, hsla(61, 32.80%, 52.20%, 0.25)hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)",
-    
-      >
+        className="h-screen w-full overflow-hidden container mx-auto flex h-screen items-center">
         <div>
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <CustomDate />
         </div>
 
@@ -80,13 +40,6 @@ const Page = (): ReactElement => {
             </div>
           </div>
 
-          {/* <div className="flex flex-col">
-            <p className="font-orbitron p-2 text-4xl neon-text-blue">To Do Today</p>
-            <div className="font-orbitron">
-              <TodayList />
-            </div>
-          </div> */}
-
           <TodayList />
 
           <div className="flex flex-col">
@@ -96,24 +49,52 @@ const Page = (): ReactElement => {
             </div>
           </div>
 
-          
           <UpcomingList />
         
+        </div> */}
+
+
+
+      <div className="grid grid-cols-6">
+
+        <div>
+          <CustomDate />
         </div>
+
+        <div className="col-span-4 border p-2" style={{borderColor: "#35453c"}}>
+          
+          <p className="text-center">Projects</p>
+          <ProjectTasks projectName="Projects" />
+
+          <p className="text-center">Learning</p>
+
+          <ProjectTasks projectName="Learning" />
+
+          <TodayList />
+
+
+          <UpcomingList />
+
+        </div>
+
+        <div>
+        
+
+        </div>
+
+      </div>
         
 
 
-        {/* <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
-        <Dots color="hsla(180, 100%, 75%, 0.05)" distance={30} /> */}
-        <MovingLines className="z-0"
-          lineColor="hsla(303, 96.10%, 40.20%, 0.12)"
-          distance={30}
-          sets={20}
-        />
+        
+      {/* <Dots color="hsla(180, 6%, 31%, 0.40)" /> */}
+          <Animator active={active} duration={{ enter: 2, exit: 4 }}>
+            <Dots color="hsla(180, 6%, 31%, 0.40)" size={2}  distance={20}/>
+          </Animator>
+
         </div>
         
       </div>
-    </Animator>
 
     // <CustomDate />
   );
