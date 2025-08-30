@@ -1,5 +1,5 @@
 'use client';
-import { CardItem } from './tempCard';
+import CardItem from './tempCard';
 import { useState, useEffect } from 'react';
 
 interface Task {
@@ -39,6 +39,7 @@ const ProjectTasks = ({ projectName }: Props) => {
     fetchProjectTasks();
   }, [projectName]);
 
+
   if (loading) return <p>Loading tasks for {projectName}...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
@@ -47,7 +48,7 @@ const ProjectTasks = ({ projectName }: Props) => {
       {tasks.length === 0 && <li>No tasks for today</li>}
 
       {tasks.map((task: any) => (
-        <CardItem key={task.id} title={task.content} />
+        <CardItem key={task.id} title={task.content} id={task.id} />
   
       ))}
     </div>

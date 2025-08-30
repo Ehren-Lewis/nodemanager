@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -11,6 +12,10 @@ module.exports = {
       fontFamily: {
         orbitron: ["var(--font-orbitron)"], // using .variable instead of .className
       },
+          screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     },
   },
   plugins: [],

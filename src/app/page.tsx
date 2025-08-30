@@ -25,7 +25,7 @@ const Page = (): ReactElement => {
 
 
       <div
-        className="h-screen w-full overflow-hidden container mx-auto flex h-screen items-center">
+        className="lg:h-screen w-full overflow-hidden container mx-auto flex items-center">
         <div>
         {/* <div className="flex justify-center">
           <CustomDate />
@@ -55,13 +55,13 @@ const Page = (): ReactElement => {
 
 
 
-      <div className="grid grid-cols-6">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-6">
 
         <div>
           <CustomDate />
         </div>
 
-        <div className="col-span-4 border p-2" style={{borderColor: "#35453c"}}>
+        <div className=" lg:col-span-4 border p-2" style={{borderColor: "#35453c"}}>
           
           <p className="text-center">Projects</p>
           <ProjectTasks projectName="Projects" />
@@ -69,6 +69,10 @@ const Page = (): ReactElement => {
           <p className="text-center">Learning</p>
 
           <ProjectTasks projectName="Learning" />
+
+          <p className="text-center">To Do</p>
+
+          <ProjectTasks projectName="ToDo" />
 
           <TodayList />
 
