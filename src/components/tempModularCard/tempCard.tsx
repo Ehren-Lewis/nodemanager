@@ -15,28 +15,28 @@ const tempStyle = {
   '--arwes-frames-line-color': 'hsla(138, 6%, 58%, 1.00)',  
 } as React.CSSProperties;
 
-const CardItem: ({title, id}: Props) => {
+const CardItem: React.FC<Props> = ({ title, id }) => {
+  const handleRemove = async () => {
+    try {
+      const res = await fetch(`/api/todoistRemove?id=${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+      });
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  
-const handleRemove = async (id:string) => {
-  try {
-        const res = await fetch(`/api/todoistProjectRemove?id=${encodeURIComponent(id)}`);
-        if (!res.ok) {
-          throw new Error(`Error: ${res.status}`);
-        }
+      if (!res.ok) {
+        throw new Error(`Error: ${res.status}`);
+      }
 
-    }  catch (err: any) {
-        console.error(err);
-        setError(err.message || 'Something went wrong');
-      } finally {
-        setLoading(false);
-      } 
+      console.log(`Task ${id} removed successfully.`);
+      window.location.reload();
+
+    } catch (err: any) {
+      console.error(err);
+    }
+  };
 
 
   return (
-    <div className="relative w-72 p-5 my-4 transformation mx-auto xl:mx-2">
+    <div className="relative w-72 p-5 my-4 transformation mx-auto xl:mx-2" onDoubleClick={handleRemove}>
       <FrameNefrex style={tempStyle}/>
       <div className="absolute inset-0 flex items-center justify-center font-orbitron z-10 text-center " style={{color: "#688574ff"}}>
         {title} 
